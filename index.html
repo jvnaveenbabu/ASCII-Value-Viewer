@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Table</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="head">
+            <h1>ASCII Table</h1>
+        </div>
+        <div class="wrapper"></div>
+        <div class="footer" style="text-align: center; margin-bottom: 20px;">
+            <img src=" https://img.shields.io/badge/Made%20With-JavaScript-yellow?style=for-the-badge&logo=javascript"
+                alt="js-badge">
+            <a href="https://github.com/jvnaveenbabu">
+                <img src="https://img.shields.io/badge/On%20Github-jvnaveenbabu-orange?style=for-the-badge&logo=github"
+                    alt="gh-badge" style="margin-left: 1rem;" />
+            </a>
+        </div>
+    </div>
+
+    <script>
+        let content = "";
+
+        for (let i = 33; i < 127; i++) {
+            content += `
+            <div class="box">
+                <h1>${String.fromCharCode(i)}</h1>
+                <div>
+                    <h4>Hex</h4>
+                    <p>${i.toString(16)}</p>
+                </div>
+                <div>
+                    <h4>Octal</h4>
+                    <p>${i.toString(8)}</p>
+                </div>
+                <div>
+                    <h4>Bin</h4>
+                    <p>${i.toString(2)}</p>
+                </div>
+            </div>
+            `;
+        }
+        document.querySelector(".wrapper").innerHTML = content;
+    </script>
+</body>
+
+</html>
