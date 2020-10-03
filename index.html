@@ -12,14 +12,18 @@
     <div class="main">
         <div class="head">
             <h1>ASCII Table</h1>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round toggle b3"></span>
+            </label>
         </div>
         <div class="wrapper"></div>
         <div class="footer" style="text-align: center; margin-bottom: 20px;">
-            <img src=" https://img.shields.io/badge/Made%20With-JavaScript-yellow?style=for-the-badge&logo=javascript"
+            <img class="b1" src=" https://img.shields.io/badge/Made%20With-JavaScript-yellow?style=for-the-badge&logo=javascript"
                 alt="js-badge">
             <a href="https://github.com/jvnaveenbabu">
-                <img src="https://img.shields.io/badge/On%20Github-jvnaveenbabu-orange?style=for-the-badge&logo=github"
-                    alt="gh-badge" style="margin-left: 1rem;" />
+            <img class="b2" src="https://img.shields.io/badge/On%20Github-jvnaveenbabu-orange?style=for-the-badge&logo=github"
+                alt="gh-badge" style="margin-left: 1rem;" />
             </a>
         </div>
     </div>
@@ -33,20 +37,47 @@
                 <h1>${String.fromCharCode(i)}</h1>
                 <div>
                     <h4>Hex</h4>
-                    <p>${i.toString(16)}</p>
+                    <p class="value" onclick="copyHex(${i});">${i.toString(16)}</p>
                 </div>
                 <div>
                     <h4>Octal</h4>
-                    <p>${i.toString(8)}</p>
+                    <p class="value" onclick="copy(${i.toString(8)});">${i.toString(8)}</p>
                 </div>
                 <div>
                     <h4>Bin</h4>
-                    <p>${i.toString(2)}</p>
+                    <p class="value" onclick="copy(${i.toString(2)});">${i.toString(2)}</p>
                 </div>
             </div>
             `;
         }
         document.querySelector(".wrapper").innerHTML = content;
+
+        function copy(a){
+            copyToClipboard(a);
+        }
+        function copyHex(a){
+            a = a.toString(16);
+            copyToClipboard(a);
+        }
+        function copyToClipboard(text) {
+            var dummy = document.createElement("textarea");
+            document.body.appendChild(dummy);
+            dummy.value = text;
+            dummy.select();
+            document.execCommand("copy");
+            document.body.removeChild(dummy);
+        }
+        let toggle = document.querySelector('.toggle');
+        let badge1 = document.querySelector('.b1');
+        let badge2 = document.querySelector('.b2');
+        let badge3 = document.querySelector('.b3');
+
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark-mode');
+            badge1.classList.toggle('dark-mode-img');
+            badge2.classList.toggle('dark-mode-img');
+            badge3.classList.toggle('dark-mode-img');
+        });
     </script>
 </body>
 
