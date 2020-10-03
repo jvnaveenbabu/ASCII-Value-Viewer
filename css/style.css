@@ -56,3 +56,30 @@ body {
         margin-right: 1rem;
     }
 }
+
+p:hover {
+    background-color: black;
+    border-radius: 5px;
+    padding-left: 3px;    
+    padding-right: 3px;
+    filter: invert(100%);
+}
+
+.value {
+    width: 70px;
+    padding: 2px;
+}
+
+.box:hover {
+    -webkit-animation: selection 1s infinite;  /* Safari 4+ */
+    -moz-animation: selection 1s infinite;  /* Fx 5+ */
+    -o-animation: selection 1s infinite;  /* Opera 12+ */
+    animation: selection 1s infinite;  /* IE 10+, Fx 29+ */
+}
+
+@keyframes selection {
+50% {
+    filter: invert(100%);
+    transition: all 0.1s ease-in;
+}
+}
