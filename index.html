@@ -12,6 +12,10 @@
     <div class="main">
         <div class="head">
             <h1>ASCII Table</h1>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round toggle b3"></span>
+            </label>
         </div>
         <div class="wrapper"></div>
         <div class="footer" style="text-align: center; margin-bottom: 20px;">
@@ -63,7 +67,17 @@
             document.execCommand("copy");
             document.body.removeChild(dummy);
         }
-        
+        let toggle = document.querySelector('.toggle');
+        let badge1 = document.querySelector('.b1');
+        let badge2 = document.querySelector('.b2');
+        let badge3 = document.querySelector('.b3');
+
+        toggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark-mode');
+            badge1.classList.toggle('dark-mode-img');
+            badge2.classList.toggle('dark-mode-img');
+            badge3.classList.toggle('dark-mode-img');
+        });
     </script>
 </body>
 
